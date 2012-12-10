@@ -1,6 +1,6 @@
-Using Python, Celery, Flask, and SQLite - could you please create a small web application, which will scan the local folders and get information about the files, size, age, etc.  Can you then save it to the database and create 2 API endpoints:
-  - list of all files
-  - information about single file.
+This is a small web application created using Using Python, Celery, Flask, and SQLite, which will scan the local folders and get information about the files, size, age, etc.  The web interface has 2 API endpoints:
+  - list of all files (@/files)
+  - information about single file. (@/file)
 result should be displayed in JSON format 
 
 To run:
