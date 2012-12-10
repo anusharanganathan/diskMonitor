@@ -1,0 +1,40 @@
+Using Python, Celery, Flask, and SQLite - could you please create a small web application, which will scan the local folders and get information about the files, size, age, etc.  Can you then save it to the database and create 2 API endpoints:
+  - list of all files
+  - information about single file.
+result should be displayed in JSON format 
+
+To run:
+1. Modify the config file diskMonitorConfig.py to suit your environemnt
+   SCAN_LOCATIONS	is a list containing all the directories or files that you want monitored for changes
+   DATABASE	name of the sqlite database
+   TABLE	Name of the table used within sqlite
+
+1. Make sure rabbitmq is running
+    sudo /etc/init.d/rabbitmq-server start
+
+2. Start the celery worker
+    celery -A notifyTask worker --loglevel=infosit 
+
+3. Start python console and type
+
+from notifyTask import monitorDisk
+monitorDisk.delay()
+
+4. Run Flask
+    python webui.py
+
+Visit http://127.0.0.1:5000/files in your browser
+
+two endpoints
+
+/files
+   Get : list of files 
+   Parameters
+      format (= html or json)
+
+/file
+   GET : lists the file attributes
+   Parameters
+      path (= path to file on disk)
+      format (= html or json)
+
