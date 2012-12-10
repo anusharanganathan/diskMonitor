@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}
+<table>
+{% for f in files %}
+<tr>
+<td><b>{{ f }}</b></td>
+<td>{{ files[f] }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

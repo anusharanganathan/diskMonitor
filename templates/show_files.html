@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}
+<table>
+{% for f in files %}
+<tr>
+<td>{{ f[1] }}</td>
+<td><a href="/file?path={{ f[0] }}">{{ f[0] }}</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
