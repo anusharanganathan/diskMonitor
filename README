@@ -13,7 +13,7 @@ To run:
     sudo /etc/init.d/rabbitmq-server start
 
 2. Start the celery worker
-    celery -A notifyTask worker --loglevel=infosit 
+    celery -A notifyTask worker --loglevel=info
 
 3. Start python console and type
 
